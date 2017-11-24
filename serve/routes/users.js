@@ -1,6 +1,6 @@
 'use strict';
 const router = require('koa-router')();
-const database = require('./database/index'),
+const database = require('../database/index'),
   db = database.db,
   pool = database.pool;
 

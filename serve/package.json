@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "mysql": "^2.15.0",
+    "node-schedule": "^1.2.5",
     "nodemon": "^1.8.1"
   }
 }

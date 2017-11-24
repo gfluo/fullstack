@@ -3,7 +3,7 @@
  */
 
 const mysql = require('mysql');
-const databaseConfig = require('../../config').database;
+const databaseConfig = require('../config').database;
 let Category = require('./category');
 let category = new Category(mysql.format);
 let pool = mysql.createPool(databaseConfig);
