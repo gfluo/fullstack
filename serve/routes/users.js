@@ -11,7 +11,7 @@ router.get('/bar', function (ctx, next) {
   ctx.body = 'this is a users/bar response'
 });
 
-router.get('home', (ctx, next) =>  {
+router.get('/home', (ctx, next) =>  {
   ctx.body = 'welcome';
 });
 
