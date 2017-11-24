@@ -1,4 +1,4 @@
 module.exports = {
-    collectJson: './collect.json',
+    collectJson: [],
     restartTime: 5, 
 }
