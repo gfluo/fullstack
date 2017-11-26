@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/serve\\routes\\database\\index.js"
+            "program": "${workspaceFolder}/serve\\bin\\child\\index.js"
         }
     ]
 }

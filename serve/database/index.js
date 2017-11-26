@@ -4,8 +4,10 @@
 
 const mysql = require('mysql');
 const databaseConfig = require('../config').database;
-let Category = require('./category');
-let category = new Category(mysql.format);
+let Category = require('./category'),
+    category = new Category(mysql.format);
+let Code = require('./code'),
+    code = new Code(mysql.format);
 let pool = mysql.createPool(databaseConfig);
 
 let getConnect = function () {
@@ -21,6 +23,7 @@ let getConnect = function () {
 
 let Db = function(category) {
     this.category = category;
+    this.code = code;
 };
 
 module.exports = {

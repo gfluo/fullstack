@@ -4,7 +4,7 @@ let Category = function (format) {
 
 Category.prototype.queryAvailable = function(params, pool) {
     return new Promise((resolve, reject) => {
-        let sql = 'select id from category where status=0';
+        let sql = 'select id, name, period_start from category where status=0';
         pool.query(sql, (err, docs) => {
             if (err) {
                 reject(err);
