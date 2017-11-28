@@ -50,4 +50,16 @@ router.get('/home', async (ctx, next) => {
   }
 });
 
+router.get('/lasted', async (ctx, next) => {
+  try {
+    let { type } = ctx.query;
+    if (!type) return ctx.body = {};
+    let lasted = await db.code.findById(parseInt(type), pool);
+    ctx.body = lasted[0];
+  } catch (e) {
+    console.error(e);
+    ctx.body = {};
+  }
+})
+
 module.exports = router;
