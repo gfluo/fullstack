@@ -21,7 +21,7 @@ Code.prototype.findById = function(type, pool) {
             if (err) 
                 reject(err);
             else
-                resolve(doc);
+                resolve(doc[0]);
         })
     })
 }

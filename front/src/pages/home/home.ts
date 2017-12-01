@@ -18,7 +18,7 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.http.get('http://127.0.0.1:3000/users/home')
+    this.http.get('http://172.50.4.102:3000/users/home')
     .subscribe(data => {
       this.RoomPage = RoomPage;
       this.lotteryList = data;

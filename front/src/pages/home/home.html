@@ -1,15 +1,15 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>玩法大厅</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>正在开奖中，请抓紧时间投注！</h2>
+  <h2>正在开奖，抓紧时间投注</h2>
   <ion-list>
     <button ion-item *ngFor="let item of lotteryList" (click)="enterRoom(item)">
-      {{ item.name }}
-      <span class="currentIssue">下一期：{{item.nextTime}}</span>
+      <p>{{ item.name }}</p>
+      <span class="currentIssue">{{item.nextTime}}</span>
     </button>
   </ion-list>
 </ion-content>

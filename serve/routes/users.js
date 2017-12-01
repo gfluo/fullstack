@@ -55,10 +55,18 @@ router.get('/lasted', async (ctx, next) => {
     let { type } = ctx.query;
     if (!type) return ctx.body = {};
     let lasted = await db.code.findById(parseInt(type), pool);
-    ctx.body = lasted[0];
+    if (lasted) {
+      lasted.code = lasted.code.split(',');
+    }
+    ctx.body = {
+      status: lasted ? 0 : -1,
+      data: lasted,
+    };
   } catch (e) {
     console.error(e);
-    ctx.body = {};
+    ctx.body = {
+      status: -1,
+    };
   }
 })
 
