@@ -22,7 +22,7 @@ export class RoomPage {
         const params = new HttpParams()
         .set('type', this.params.get('id'));
 
-        this.http.get('http://172.50.4.102:3000/users/lasted', {params})
+        this.http.get('http://localhost:3000/users/lasted', {params})
         .subscribe(data => {
             if (0 === data.status) {
                 let newLasted = data.data;
