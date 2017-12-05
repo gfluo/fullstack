@@ -24,8 +24,9 @@ export class HomePage {
   lotteryList: Object;
   constructor(public navCtrl: NavController, private http: HttpClient) {
   }
-  enterRoom(roomInfo) {
-    this.navCtrl.push(RoomPage, roomInfo);
+  enterRoom(type) {
+    let name = type === 1 ? '重庆十分' : '广东十分';
+    this.navCtrl.push(RoomPage, {type: type, name: name});
   }
 
   ngOnInit() {

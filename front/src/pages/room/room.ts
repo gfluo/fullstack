@@ -20,18 +20,16 @@ export class RoomPage {
 
     ngOnInit(){
         const params = new HttpParams()
-        .set('type', this.params.get('id'));
+        .set('type', this.params.get('type'));
 
-        this.http.get('http://172.50.4.102:3000/users/lasted', {params})
+        this.http.get('http://localhost:3000/users/lasted', {params})
         .subscribe(data => {
-            /*
-            if (0 === data.status) {
-                let newLasted = data.data;
+            if (0 === data['status']) {
+                let newLasted = data['data'];
                 this.lasted.issue = newLasted.issue;
                 this.lasted.code = newLasted.code;
                 this.lasted.time = newLasted.time;
             }
-            */
             ///this.lasted = data;  
             ///console.log(this.lasted);
         })
