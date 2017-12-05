@@ -9,6 +9,17 @@ import { RoomPage } from '../room/room';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  slides = [
+    {
+      image: "assets/imgs/time.jpg",
+    },
+    {
+      image: "assets/imgs/time.jpg",
+    },
+    {
+      image: "assets/imgs/time.jpg",
+    }
+  ];
   RoomPage;
   lotteryList: Object;
   constructor(public navCtrl: NavController, private http: HttpClient) {
