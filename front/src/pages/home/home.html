@@ -3,14 +3,14 @@
     <ion-title >游戏大厅 <span class="custom"><ion-icon name="ionitron"></ion-icon></span></ion-title>    
   </ion-navbar>
 </ion-header>
-<ion-content>
-  <ion-slides pager style="height:40%">
+<ion-content style="background: url(assets/imgs/background.jpg)">
+  <ion-slides pager style="height:35%">
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.image" class="slide-image"/>
     </ion-slide>      
   </ion-slides>
 
-  <ion-card>       
+  <ion-card style="background: #ff8f59">       
     <ion-card-content>
       幸运转盘以开放，日充值达100，输赢达100以上即可获取一次抽奖机会。祝各位老板游戏愉快!
     </ion-card-content>
@@ -18,20 +18,20 @@
 
    <ion-grid>
       <ion-row>
-        <ion-col col-6>
-          <ion-card>       
-            <ion-card-content>
-              幸运转盘以开放，日充值达100，输赢达100以上即可获取一次抽奖机会。祝各位老板游戏愉快!
-            </ion-card-content>
+        <ion-col>
+          <ion-card style="text-align: center">       
+            <img src="assets/imgs/cqsf.jpg"/>
+            <h2><span class="lottery">广东十分</span> 番摊</h2>
+            <button ion-button color="light" small>玩法介绍</button>
            </ion-card>
           </ion-col>
-          <ion-col col-6>
-              <ion-card>       
-                <ion-card-content>
-                  幸运转盘以开放，日充值达100，输赢达100以上即可获取一次抽奖机会。祝各位老板游戏愉快!
-                </ion-card-content>
-               </ion-card>
-              </ion-col>
+        <ion-col>
+          <ion-card style="text-align: center">       
+            <img src="assets/imgs/gdsf.jpg"/>
+            <h2><span class="lottery">重庆十分</span> 番摊</h2>
+            <button ion-button color="light" small>玩法介绍</button>
+          </ion-card>
+        </ion-col>
       </ion-row>
     </ion-grid>
 </ion-content>
