@@ -16,11 +16,16 @@ declare var $: any;
 export class RoomPage {
     title: string; //step2
     lasted: Lasted;
+    article: string;
     constructor(public params:NavParams, private http: HttpClient){ //step1
         this.title= this.params.get('name'); //step2
         this.lasted = new Lasted('', [], '');
+        this.article = '';
     }
 
+    postArticle(){
+        console.log(this.article);
+    };
     ngOnInit(){
         tinymce.init({
             selector: 'textarea',

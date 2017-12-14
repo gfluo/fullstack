@@ -4,6 +4,6 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <h1>{{lasted.issue}}</h1>
-    <textarea></textarea>
+    <button ion-button (click)='postArticle()'>提交文章</button>
+    <textarea [(ngModel)]='article'></textarea>
 </ion-content>
