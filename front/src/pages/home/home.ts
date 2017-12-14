@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http'; 
 
 import { RoomPage } from '../room/room';
+declare var tinymce: any;
+declare var $: any;
 
 @Component({
   selector: 'page-home',
@@ -20,6 +22,7 @@ export class HomePage {
       image: "assets/imgs/time3.jpg",
     }
   ];
+  article: string;
   RoomPage;
   lotteryList: Object;
   constructor(public navCtrl: NavController, private http: HttpClient) {
@@ -30,10 +33,18 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.http.get('http://42.51.44.131:3000/users/home')
-    .subscribe(data => {
-      this.RoomPage = RoomPage;
-      this.lotteryList = data;
-    })
+    tinymce.init({
+      selector: 'textarea',  // change this value according to your HTML
+      height: 500,
+      language: 'zh_CN',
+      toolbar1: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | image media',
+      file_browser_callback: function(field_name, url, type, win) {
+        win.document.getElementById(field_name).value = 'my browser value';
+      }
+    });
+  };
+
+  ngOnDestroy() {
+    tinymce.remove(this['editor']);
   }
 }

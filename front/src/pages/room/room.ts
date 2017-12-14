@@ -46,10 +46,10 @@ export class RoomPage {
             fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
             image_advtab: true,
             file_picker_types: 'file image media',
-            images_upload_url: 'http://localhost:3000/users/uploadFile',
-            images_upload_base_path: 'http://localhost:3000/uploads',
+            ///images_upload_url: 'http://192.168.10.154:3000/users/uploadFile',
+            images_upload_base_path: 'http://192.168.10.154:3000/uploads',
             ///images_upload_credentials: true,
-            /*
+            
             images_upload_handler: function (blobInfo, success, failure) {
                 var xhr, formData;
                 xhr = new XMLHttpRequest();
@@ -75,7 +75,7 @@ export class RoomPage {
                 formData.append('file', blobInfo.blob(), blobInfo.filename());
                 xhr.send(formData);
             },
-            */
+            
             file_picker_callback: function(cb, value, meta) {
                 var input = document.createElement('input');
                 input.setAttribute('type', 'file');
