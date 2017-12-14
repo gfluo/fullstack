@@ -30,7 +30,7 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/users/home')
+    this.http.get('http://42.51.44.131:3000/users/home')
     .subscribe(data => {
       this.RoomPage = RoomPage;
       this.lotteryList = data;
