@@ -42,7 +42,7 @@ export class RoomPage {
             image_advtab: true,
             file_picker_types: 'file image media',
             images_upload_url: 'http://localhost:3000/users/uploadFile',
-            ///images_upload_base_path: '/some/basepath',
+            images_upload_base_path: 'http://localhost:3000/uploads',
             ///images_upload_credentials: true,
             /*
             images_upload_handler: function (blobInfo, success, failure) {

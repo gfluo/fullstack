@@ -87,7 +87,7 @@ var upload = multer({ storage: storage });
 //路由
 router.post('/uploadFile', upload.single('file'), async (ctx, next) => {
   ctx.body = {
-    filename: 'a.jpg'//返回文件名
+    location: ctx.req.file.filename ///返回文件名
   }
 })
 
