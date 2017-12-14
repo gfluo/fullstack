@@ -1,4 +1,5 @@
 'use strict';
+const multer = require('koa-multer');
 const router = require('koa-router')();
 const moment = require('moment');
 const database = require('../database/index'),
@@ -67,6 +68,26 @@ router.get('/lasted', async (ctx, next) => {
     ctx.body = {
       status: -1,
     };
+  }
+})
+
+var storage = multer.diskStorage({
+  //文件保存路径
+  destination: function (req, file, cb) {
+    cb(null, 'serve/public/uploads/')
+  },
+  //修改文件名称
+  filename: function (req, file, cb) {
+    var fileFormat = (file.originalname).split(".");
+    cb(null, Date.now() + "." + fileFormat[fileFormat.length - 1]);
+  }
+})
+//加载配置
+var upload = multer({ storage: storage });
+//路由
+router.post('/uploadFile', upload.single('file'), async (ctx, next) => {
+  ctx.body = {
+    filename: 'a.jpg'//返回文件名
   }
 })
 

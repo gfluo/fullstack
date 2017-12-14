@@ -41,13 +41,17 @@ export class RoomPage {
             fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
             image_advtab: true,
             file_picker_types: 'file image media',
+            images_upload_url: 'http://localhost:3000/users/uploadFile',
+            ///images_upload_base_path: '/some/basepath',
+            ///images_upload_credentials: true,
+            /*
             images_upload_handler: function (blobInfo, success, failure) {
                 var xhr, formData;
                 xhr = new XMLHttpRequest();
                 xhr.withCredentials = false;
-                xhr.open('POST', '/clients/tinymceFileUpload');
-                var token = $('[name="csrf-token"]').prop('content');
-                xhr.setRequestHeader("X-CSRF-Token", token);
+                xhr.open('POST', 'http://localhost:3000/users/uploadFile');
+                ///var token = $('[name="csrf-token"]').prop('content');
+                ///xhr.setRequestHeader("X-CSRF-Token", token);
                 xhr.onload = function() {
                     var json;
                     if (xhr.status != 200) {
@@ -66,6 +70,7 @@ export class RoomPage {
                 formData.append('file', blobInfo.blob(), blobInfo.filename());
                 xhr.send(formData);
             },
+            */
             file_picker_callback: function(cb, value, meta) {
                 var input = document.createElement('input');
                 input.setAttribute('type', 'file');
