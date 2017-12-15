@@ -2,6 +2,7 @@
 const multer = require('koa-multer');
 const router = require('koa-router')();
 const moment = require('moment');
+const path = require('path');
 const database = require('../database/index'),
   db = database.db,
   pool = database.pool;
@@ -74,7 +75,7 @@ router.get('/lasted', async (ctx, next) => {
 var storage = multer.diskStorage({
   //文件保存路径
   destination: function (req, file, cb) {
-    cb(null, 'serve/public/uploads/')
+    cb(null, path.resolve(__dirname, '../public/uploads'));
   },
   //修改文件名称
   filename: function (req, file, cb) {
