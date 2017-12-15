@@ -1,8 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title >游戏大厅 <span class="custom"><ion-icon name="ionitron"></ion-icon></span></ion-title>    
+    <ion-title >游戏大厅 <span class="custom" (click)='enterRoom()'>保存预览</span></ion-title>    
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <textarea [(ngModel)]='article'></textarea>
+  <form action="http://localhost:3000/users/submit" method='POST' target="id_iframe">
+    <textarea name='article'></textarea>
+    <iframe id="id_iframe" name="id_iframe" style="display:none;"></iframe>  
+  </form>
 </ion-content>

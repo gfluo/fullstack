@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http'; 
 
 import { RoomPage } from '../room/room';
 declare var tinymce: any;
@@ -25,7 +24,8 @@ export class HomePage {
   article: string;
   RoomPage;
   lotteryList: Object;
-  constructor(public navCtrl: NavController, private http: HttpClient) {
+  constructor(public navCtrl: NavController) {
+    this.article = '';
   }
   enterRoom(type) {
     let name = type === 1 ? '重庆十分' : '广东十分';
@@ -37,12 +37,13 @@ export class HomePage {
       selector: 'textarea',  // change this value according to your HTML
       height: 500,
       language: 'zh_CN',
-      plugins: "image, media, link, autolink, emoticons",
+      ///inline: true,
+      plugins: "image, media, link, autolink, emoticons, imagetools, save",
       ///file_browser_callback_types: 'file image media',
       file_picker_types: 'file image media',
       media_live_embeds: true,
       ///images_upload_base_path: 'http://192.168.10.154:3000/uploads',
-      toolbar1: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify',
+      toolbar1: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | save',
       file_picker_callback: function(cb, value, meta) {
         var input = document.createElement('input');
         input.setAttribute('type', 'file');
@@ -81,7 +82,7 @@ export class HomePage {
     
         xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
-        xhr.open('POST', 'http://42.51.44.131:3000/users/uploadFile');
+        xhr.open('POST', 'http://localhost:3000/users/uploadFile');
     
         xhr.onload = function() {
           var json;
@@ -105,7 +106,7 @@ export class HomePage {
         formData.append('file', blobInfo.blob(), blobInfo.filename());
     
         xhr.send(formData);
-      }
+      },
     });
   };
 

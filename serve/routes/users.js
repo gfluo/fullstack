@@ -72,7 +72,21 @@ router.get('/lasted', async (ctx, next) => {
   }
 })
 
-var storage = multer.diskStorage({
+router.get('/article', async (ctx, next) => {
+  ctx.body = {
+    code: 0,
+    msg: global.article || '',
+  }
+})
+
+router.post('/submit', async (ctx, next) => {
+  global.article = ctx.request.body.article; 
+  ctx.body = {
+    code: 0,
+  }
+})
+
+let storage = multer.diskStorage({
   //文件保存路径
   destination: function (req, file, cb) {
     cb(null, path.resolve(__dirname, '../public/uploads'));
@@ -84,11 +98,11 @@ var storage = multer.diskStorage({
   }
 })
 //加载配置
-var upload = multer({ storage: storage });
+let upload = multer({ storage: storage });
 //路由
 router.post('/uploadFile', upload.single('file'), async (ctx, next) => {
   ctx.body = {
-    location:`http://42.51.44.131:3000/uploads/${ ctx.req.file.filename }`///返回文件名
+    location:`http://localhost:3000/uploads/${ ctx.req.file.filename }`///返回文件名
   }
 })
 
