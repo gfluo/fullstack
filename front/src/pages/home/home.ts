@@ -81,7 +81,7 @@ export class HomePage {
     
         xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
-        xhr.open('POST', 'http://192.168.10.154:3000/users/uploadFile');
+        xhr.open('POST', 'http://42.51.44.131:3000/users/uploadFile');
     
         xhr.onload = function() {
           var json;
