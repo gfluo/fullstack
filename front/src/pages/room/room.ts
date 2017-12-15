@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpParams } from "@angular/common/http";
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { NavParams } from 'ionic-angular';
 
@@ -15,16 +16,16 @@ declare var $: any;
 })
 export class RoomPage {
     title: string; //step2
-    msg: string;
+    msg: any;
     lasted: Lasted;
-    constructor(public params:NavParams, private http: HttpClient){ //step1
+    constructor(public params:NavParams, private http: HttpClient, private sanitizer: DomSanitizer){ ///step1
         this.title= this.params.get('name'); //step2
         this.lasted = new Lasted('', [], '');
     }
-    ngOnIni() {
-      this.http.get('http://localhost:3000/users/article')
+    ngOnInit() {
+      this.http.get('http://42.51.44.131:3000/users/article')
       .subscribe(data => {
-        this.msg = data['msg'];
+        this.msg = this.sanitizer.bypassSecurityTrustHtml(data['msg']);
       })
     }
 }
