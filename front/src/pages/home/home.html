@@ -1,12 +1,15 @@
 <ion-header>
   <ion-navbar>
-    <ion-title >游戏大厅 <span class="custom" (click)='enterRoom()'>保存预览</span></ion-title>    
+    <ion-title >游戏大厅</ion-title>    
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <form action="http://42.51.44.131:3000/users/submit" method='POST' target="id_iframe">
-  <!--form action="http://localhost:3000/users/submit" method='POST' target="id_iframe"-->
+  <!--form action="http://42.51.44.131:3000/users/submit" method='POST' target="id_iframe">
+  <form action="http://localhost:3000/users/submit" method='POST' target="id_iframe">
     <textarea name='article'></textarea>
     <iframe id="id_iframe" name="id_iframe" style="display:none;"></iframe>  
+  </form-->
+  <form>
+    <textarea name='editor1' id='deitor1' rows='10' cols='80'></textarea>
   </form>
 </ion-content>
