@@ -38,7 +38,7 @@ export class HomePage {
   ngOnInit() {
     const s = this._renderer2.createElement('script');
     s.text = `{
-      CKEDITOR.replace('editor1', {
+      var editor = CKEDITOR.replace('editor1', {
         height: 500,
         allowedContent: true,
         extraPlugins: 'html5video,widget,widgetselection,clipboard,lineutils',
@@ -55,6 +55,12 @@ export class HomePage {
           ['Save']
         ]
       });
+      editor.on("instanceReady", function (evt) {  
+        editor.addCommand("save", { modes: { wysiwyg: 1, source: 1 }, exec: function (editor) {
+          alert('fuck');  
+        }  
+        });  
+      });    
     }`
     this._renderer2.appendChild(this._document.body, s);
   };
