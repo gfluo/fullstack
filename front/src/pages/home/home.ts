@@ -39,11 +39,11 @@ export class HomePage {
     const s = this._renderer2.createElement('script');
     s.text = `{
       CKEDITOR.replace('editor1', {
-        ///heigth: 500,
+        height: 500,
         allowedContent: true,
         extraPlugins: 'html5video,widget,widgetselection,clipboard,lineutils',
         image_previewText: '',
-        filebrowserUploadUrl: 'http://localhost:3000/users/uploadFile',
+        ///filebrowserUploadUrl: 'http://localhost:3000/users/uploadFile',
         filebrowserImageUploadUrl: 'http://localhost:3000/users/uploadFile',
         uiColor: '#9AB8F3',
         toolbar: [
@@ -51,7 +51,8 @@ export class HomePage {
           ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
           ['Outdent','Indent'],
           ['Subscript','Superscript'],
-          ['Image', 'Html5video']
+          ['Image', 'Html5video'],
+          ['Save']
         ]
       });
     }`

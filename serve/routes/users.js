@@ -100,10 +100,10 @@ let storage = multer.diskStorage({
 //加载配置
 let upload = multer({ storage: storage });
 //路由
-router.post('/uploadFile', upload.single('file'), async (ctx, next) => {
+router.post('/uploadFile', upload.single('upload'), async (ctx, next) => {
   ctx.body = {
-    location:`http://localhost:3000/uploads/${ ctx.req.file.filename }`///返回文件名
-    ///location:`http://42.51.44.131:3000/uploads/${ ctx.req.file.filename }`///返回文件名
+    ///location:`http://192.168.10.154:3000/uploads/${ ctx.req.file.filename }`///返回文件名
+    location:`http://42.51.44.131:3000/uploads/${ ctx.req.file.filename }`///返回文件名
   }
 })
 
